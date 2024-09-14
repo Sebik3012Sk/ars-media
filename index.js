@@ -1,6 +1,11 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 const app = express();
+
+app.set('views', path.join(__dirname, 'views'));
+
+app.set('view engine', 'ejs');
 
 app.use(cors());
 const databaseRoute = require("./routes/getData"); 
@@ -11,7 +16,7 @@ const getRandomPort = () => Math.floor(Math.random() * (65535 - 1024 + 1)) + 102
 const PORT = process.env.PORT || getRandomPort();
 
 app.get("/",(req,res) => {
-    res.send("API Database");
+    res.render("index");
 })
 
 app.get("/get-post",cors(),databasePostGet);
