@@ -6,7 +6,9 @@ app.use(cors());
 const databaseRoute = require("./routes/getData"); 
 const databasePostGet = require("./routes/getPost");
 
-const PORT = process.env.PORT || 2007;
+const getRandomPort = () => Math.floor(Math.random() * (65535 - 1024 + 1)) + 1024;
+
+const PORT = process.env.PORT || getRandomPort();
 
 app.get("/",(req,res) => {
     res.send("API Database");
