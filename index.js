@@ -6,7 +6,7 @@ app.use(cors());
 const databaseRoute = require("./routes/getData"); 
 const databasePostGet = require("./routes/getPost");
 
-const PORT = 3001;
+const PORT = 5000 || process.env.PORT;
 
 app.get("/",(req,res) => {
     res.send("API Database");
@@ -15,7 +15,7 @@ app.get("/",(req,res) => {
 app.get("/get-post",cors(),databasePostGet);
 app.get("/get-data",cors(),databaseRoute);
 
-app.listen(5000,(err) => {
+app.listen(PORT,(err) => {
     if(err) {
         console.log(err);
     } else {
