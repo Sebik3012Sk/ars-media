@@ -6,7 +6,7 @@ app.use(cors());
 const databaseRoute = require("./routes/getData"); 
 const databasePostGet = require("./routes/getPost");
 
-const PORT = 2007 || process.env.PORT;
+const PORT = process.env.PORT || 2007;
 
 app.get("/",(req,res) => {
     res.send("API Database");
