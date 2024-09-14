@@ -4,6 +4,7 @@ const app = express();
 
 app.use(cors());
 const databaseRoute = require("./routes/getData"); 
+const databasePostGet = require("./routes/getPost");
 
 const PORT = 5000 | process.env.PORT;
 
@@ -11,7 +12,8 @@ app.get("/",(req,res) => {
     res.send("API Database");
 })
 
-app.get("/get-data",databaseRoute);
+app.get("/get-post",cors(),databasePostGet);
+app.get("/get-data",cors(),databaseRoute);
 
 app.listen(5000,(err) => {
     if(err) {
@@ -19,5 +21,6 @@ app.listen(5000,(err) => {
     } else {
         console.log(`[SERVER] : APP Running on http://localhost:${PORT}`);
         console.log(`[SERVER] : APP Data Running on http://localhost:${PORT}/get-data`);
+        console.log(`[SERVER] : APP Data Running on http://localhost:${PORT}/get-post`);
     }
 })
