@@ -10,7 +10,6 @@ app.set('view engine', 'ejs');
 app.use(cors());
 const databaseRoute = require("./routes/getData"); 
 const databasePostGet = require("./routes/getPost");
-const postUser = require("./routes/postUser");
 
 const PORT = 3000;
 
@@ -20,10 +19,9 @@ app.get("/",(req,res) => {
 
 app.get("/get-post",cors(),databasePostGet);
 app.get("/get-data",cors(),databaseRoute);
-app.use("/post-user",cors(),postUser);
 
 
-app.listen((err) => {
+app.listen(PORT,(err) => {
     if(err) {
         console.log(err);
     } else {
