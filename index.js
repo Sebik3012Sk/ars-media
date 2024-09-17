@@ -10,10 +10,9 @@ app.set('view engine', 'ejs');
 app.use(cors());
 const databaseRoute = require("./routes/getData"); 
 const databasePostGet = require("./routes/getPost");
+const postUser = require("./routes/postUser");
 
-const getRandomPort = () => Math.floor(Math.random() * (65535 - 1024 + 1)) + 1024;
-
-const PORT = process.env.PORT || getRandomPort();
+const PORT = 3000;
 
 app.get("/",(req,res) => {
     res.render("index");
@@ -21,8 +20,10 @@ app.get("/",(req,res) => {
 
 app.get("/get-post",cors(),databasePostGet);
 app.get("/get-data",cors(),databaseRoute);
+app.use("/post-user",cors(),postUser);
 
-app.listen(PORT,(err) => {
+
+app.listen((err) => {
     if(err) {
         console.log(err);
     } else {

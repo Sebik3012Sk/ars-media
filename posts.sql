@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Počítač: 127.0.0.1
--- Vytvořeno: Sob 14. zář 2024, 16:32
+-- Vytvořeno: Ned 15. zář 2024, 15:17
 -- Verze serveru: 10.4.32-MariaDB
 -- Verze PHP: 8.0.30
 
@@ -32,16 +32,17 @@ CREATE TABLE `posts` (
   `likes` int(11) NOT NULL,
   `description` text NOT NULL,
   `id` int(11) NOT NULL,
-  `post_content` text NOT NULL
+  `post_content` text NOT NULL,
+  `image` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Vypisuji data pro tabulku `posts`
 --
 
-INSERT INTO `posts` (`post_name`, `likes`, `description`, `id`, `post_content`) VALUES
-('Kurva Raketa', 28000, 'Kurva Suka Bliat Pojebala Ma tiktoka', 1, 'How do you live in this fucking world where do you destroyeed everything fucking president'),
-('Kit Song Tutorial', 20000, 'Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , You are dead bro', 2, 'No stres do přírody ');
+INSERT INTO `posts` (`post_name`, `likes`, `description`, `id`, `post_content`, `image`) VALUES
+('Kurva Raketa', 28000, 'Kurva Suka Bliat Pojebala Ma tiktoka', 1, 'How do you live in this fucking world where do you destroyeed everything fucking president', 'https://th.bing.com/th/id/OIP.eHVem3Phk0BQjfbZ90VA6QHaJ5?w=128&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7'),
+('Kit Song Tutorial', 20000, 'Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , Meow , You are dead bro', 2, 'No stres do přírody ', '');
 
 --
 -- Indexy pro exportované tabulky
